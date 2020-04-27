@@ -24,8 +24,6 @@ class Dresscode extends Component {
         axios.get('/getDresscode')
             .then(res => {
                 this.setState({people: res.data});
-                // call getData() again in 5 seconds
-                this.intervalID = setTimeout(this.getData.bind(this), 1000);
             });
     }
     addPerson(id, name,violation) {
@@ -37,7 +35,6 @@ class Dresscode extends Component {
         axios.post('/addDresscode', bodyFormData)
             .then(res => {
                 this.setState({Dresscode: res.data});
-                console.log(this.state.Dresscode);
             })
     }
 
@@ -49,16 +46,10 @@ class Dresscode extends Component {
                axios.post('/deleteDresscode', bodyFormData)
                    .then(res => {
                        this.setState({Dresscode: res.data});
-                       console.log(this.state.Dresscode);
                    })
     }
 
     render() {
-       // return (
-          // <section className="smart-filter-content">
-            //    <h1>Dresscode violation</h1>
-            //</section>
-        //);
         return (
                     <section className="smart-filter-content">
 
